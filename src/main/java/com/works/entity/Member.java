@@ -2,9 +2,11 @@ package com.works.entity;
 
 import com.works.constant.MemberRole;
 import com.works.constant.MemberStatus;
+import com.works.entity.base.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Members")
 @Getter@Setter@ToString
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @Column(unique = true)                  // unique = true 해당 값은 유니크한 값이 들어간다. 중복 x
