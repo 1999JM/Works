@@ -39,7 +39,7 @@ export default function LoginForm() {
         })
         .then((response) => {
             // 성공적으로 응답을 받았을 때 실행되는 부분
-            navigate('/home', {  'Authorization': response.headers.get('Authorization'),})
+            navigate('/', {  'Authorization': response.headers.get('Authorization'),})
         })
         .catch((error) => {
             // 요청이 실패했을 때 실행되는 부분
