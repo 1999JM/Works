@@ -1,33 +1,37 @@
-import * as React from 'react';
+import React from 'react';
+import { Drawer, List, ListItem, ListItemText } from '@mui/material';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 
-export default function SideBar() {
-
-    return (
-    <div>
-        사이드 영역
-    </div>
-        /*<Box
+export default function Sidebar(props) {
+    const drawerWidth = props.drawerWidth;
+    console.log(drawerWidth);
+  return (
+        <Box
+            component="nav"
+            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            aria-label="mailbox folders"
+        >
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+        variant="temporary"
+        ModalProps={{
+        keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+        display: { xs: 'block', sm: 'none' },
+        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+        }}
+        >
+        </Drawer>
+            <Drawer
+            variant="permanent"
             sx={{
-                display: 'flex',
-                width: 300,
-                height: 300,
-                backgroundColor: 'primary.dark',
-                '&:hover': {
-                backgroundColor: 'primary.main',
-                opacity: [0.9, 0.8, 0.7],
-                },
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
-        />*/
-    );
+            open
+            >
+        </Drawer>
+        </Box>
+  );
 }

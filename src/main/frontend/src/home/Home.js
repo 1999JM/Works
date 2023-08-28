@@ -9,8 +9,8 @@ import Stack from '@mui/material/Stack';
 
 export default function HomeForm() {
     return (
-    <div>
-        홈 페이지
-    </div>
+        <>
+            홈 페이지
+        </>
   );
 }

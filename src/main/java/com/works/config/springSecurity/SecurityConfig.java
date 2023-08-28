@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .failureHandler(new UserLoginFailureHandler()) // 로그인 실패 핸들러
             .and()
             .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), // JwtAuthenticationFilter를 UsernamePasswordAuthenticationFilter 전에 넣는다
-                    UsernamePasswordAuthenticationFilter.class); // + 토큰에 저장된 유저정보를 활용하여야 하기 때문에 CustomUserDetailService 클래스를 생성합니다.
+                    UsernamePasswordAuthenticationFilter.class); // + 토큰에 저장된 유저정보를 활용하여야 하기 때문에 UserDetailService 클래스를 생성합니다.
 
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
